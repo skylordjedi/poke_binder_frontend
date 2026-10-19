@@ -1,8 +1,6 @@
-import { useState, ChangeEvent } from "react";
+import { useState, type ChangeEvent } from "react";
 import { identifyCard } from "../api/identify";
 import type { IdentifyMatch } from "../types/identify";
-
-const CONFIDENCE_THRESHOLD = 0.85;
 
 interface Props {
   onConfirmed: (match: IdentifyMatch, candidates: IdentifyMatch[], photo: File) => void;
@@ -37,8 +35,7 @@ export function ScanCard({ onConfirmed, onManualEntry }: Props) {
         setCandidates(result.matches);
         setStatus("confirming");
       } else {
-        // Not confident enough to guess — go straight to manual entry
-        // rather than presenting a match we're not sure about.
+        // The backend found nothing at all — go straight to manual entry.
         onManualEntry(file);
       }
     } catch (err) {

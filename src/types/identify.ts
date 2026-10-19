@@ -10,6 +10,8 @@ export interface IdentifyMatch {
   
   export interface IdentifyResponse {
     rawText: string;
+    numberText?: string;
+    collector?: { number: number; total: number } | null;
     candidates: string[];
     matches: IdentifyMatch[];
   }

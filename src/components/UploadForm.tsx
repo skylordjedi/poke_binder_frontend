@@ -1,4 +1,4 @@
-import { useState, FormEvent, ChangeEvent } from "react";
+import { useState, type FormEvent, type ChangeEvent } from "react";
 import type { CardCondition, NewCardInput } from "../types/card";
 import type { IdentifyMatch } from "../types/identify";
 
